@@ -1,0 +1,38 @@
+.list-con {
+  list-style-type: none;
+  width: 80%;
+  margin: 10px;
+}
+
+.link {
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.link:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.team-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.team-name {
+  font-family: 'Bree Serif';
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+}

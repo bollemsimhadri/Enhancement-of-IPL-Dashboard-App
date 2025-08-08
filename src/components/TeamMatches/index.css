@@ -1,0 +1,60 @@
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.next-con {
+  width: 95%;
+  max-width: 1100px;
+  margin-top: 30px;
+}
+
+.banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.ul-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+/* Team background themes */
+.rcb {
+  background: linear-gradient(to top, #1e293b, #a4261d);
+}
+.kkr {
+  background: linear-gradient(to top, #1e293b, #5755a7);
+}
+.kxp {
+  background: linear-gradient(to top, #1e293b, #d91c1f);
+}
+.csk {
+  background: linear-gradient(to top, #1e293b, #f7db00);
+}
+.rr {
+  background: linear-gradient(to top, #1e293b, #da237b);
+}
+.mi {
+  background: linear-gradient(to top, #1e293b, #13418b);
+}
+.srh {
+  background: linear-gradient(to top, #1e293b, #f26d22);
+}
+.dc {
+  background: linear-gradient(to top, #1e293b, #4f5db0);
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}

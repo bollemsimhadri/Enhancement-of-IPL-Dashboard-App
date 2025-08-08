@@ -1,0 +1,41 @@
+.li-con {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 12px;
+  width: 220px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.match-img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 12px;
+}
+
+.para {
+  font-family: 'Bree Serif';
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.match-status {
+  font-family: 'Bree Serif';
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.match-won {
+  color: #18ed66;
+}
+
+.match-lost {
+  color: #d91c1f;
+}

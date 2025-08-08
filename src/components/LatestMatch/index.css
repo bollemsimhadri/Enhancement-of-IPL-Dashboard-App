@@ -1,0 +1,79 @@
+.latest-match-container {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  margin: 20px 0;
+}
+
+.heading {
+  font-family: 'Bree Serif', serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.main-con {
+  width: 100%;
+}
+
+.match-details-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0f172a;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 30%;
+}
+
+.center-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  width: 30%;
+}
+
+.teamname {
+  font-family: 'Bree Serif';
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.date,
+.venue,
+.result {
+  font-size: 16px;
+  margin: 3px 0;
+}
+
+.logo {
+  height: 150px;
+  width: 180px;
+  object-fit: contain;
+}
+
+.para {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.value {
+  margin-bottom: 8px;
+  font-size: 14px;
+}

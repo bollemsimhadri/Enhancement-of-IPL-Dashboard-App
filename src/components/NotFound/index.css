@@ -1,0 +1,16 @@
+.para {
+  font-family: Bree Serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+}
+
+.notfound-con {
+  height: 100vh;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-sm-bg.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
