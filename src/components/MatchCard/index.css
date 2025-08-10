@@ -2,14 +2,13 @@
   background-color: #1e293b;
   border-radius: 12px;
   padding: 20px;
-  margin: 12px;
+
   width: 220px;
   text-align: center;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .match-img {

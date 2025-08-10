@@ -1,16 +1,18 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+import PieChart from '../PieChart'
 
 import './index.css'
 
 class TeamMatches extends Component {
-  state = {teamList: {}, isLoading: true}
+  state = {teamMatchesData: {}, isLoading: true}
 
   componentDidMount() {
-    this.getdata()
+    this.getData()
   }
 
   convertData = data => ({
@@ -27,7 +29,7 @@ class TeamMatches extends Component {
     matchStatus: data.match_status,
   })
 
-  getdata = async () => {
+  getData = async () => {
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -43,8 +45,82 @@ class TeamMatches extends Component {
       ),
     }
 
-    this.setState({teamList: newApiData, isLoading: false})
+    this.setState({teamMatchesData: newApiData, isLoading: false})
   }
+
+  getNoOfMatches = value => {
+    const {teamMatchesData} = this.state
+    const {latestMatch, recentMatches} = teamMatchesData
+
+    const normalize = status => {
+      if (!status) return ''
+      const s = status.toLowerCase()
+      if (s.includes('won')) return 'Won'
+      if (s.includes('lost')) return 'Lost'
+      return 'Drawn'
+    }
+
+    const currentMatch = normalize(latestMatch.matchStatus) === value ? 1 : 0
+
+    return (
+      recentMatches.filter(match => normalize(match.matchStatus) === value)
+        .length + currentMatch
+    )
+  }
+
+  generatePieChartData = () => [
+    {name: 'Won', value: this.getNoOfMatches('Won')},
+    {name: 'Lost', value: this.getNoOfMatches('Lost')},
+    {name: 'Drawn', value: this.getNoOfMatches('Drawn')},
+  ]
+
+  renderRecentMatchesList = () => {
+    const {teamMatchesData} = this.state
+    const {recentMatches} = teamMatchesData
+
+    return (
+      <ul className="recent-matches-list">
+        {recentMatches.map(recentMatch => (
+          <MatchCard matchDetails={recentMatch} key={recentMatch.id} />
+        ))}
+      </ul>
+    )
+  }
+
+  renderTeamMatches = () => {
+    const {teamMatchesData} = this.state
+    const {teamBannerUrl, latestMatch, recentMatches} = teamMatchesData
+
+    if (!latestMatch || !recentMatches) {
+      return null
+    }
+
+    return (
+      <div className="responsive-container">
+        <img src={teamBannerUrl} alt="team banner" className="team-banner" />
+        <LatestMatch latestMatchData={latestMatch} />
+        <h1 className="heading">Team Statistics</h1>
+
+        {recentMatches.length > 0 && (
+          <PieChart data={this.generatePieChartData()} />
+        )}
+
+        {this.renderRecentMatchesList()}
+
+        <Link to="/">
+          <button type="button" className="btn btn-outline-info mb-2">
+            Back
+          </button>
+        </Link>
+      </div>
+    )
+  }
+
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="Oval" color="#ffffff" height={50} width={50} />
+    </div>
+  )
 
   classes = () => {
     const {match} = this.props
@@ -72,35 +148,12 @@ class TeamMatches extends Component {
     }
   }
 
-  renderLoader = () => (
-    <div className="loader-container" testid="loader">
-      <Loader type="Oval" color="#ffffff" height={50} width={50} />
-    </div>
-  )
-
-  getdataFromApi = () => {
-    const {teamList} = this.state
-    const {recentMatches, latestMatch, teamBannerUrl} = teamList
-
-    return (
-      <div className="next-con">
-        <img src={teamBannerUrl} alt="team banner" className="banner" />
-        <LatestMatch latestmatchdata={latestMatch} />
-        <ul className="ul-con">
-          {recentMatches.map(each => (
-            <MatchCard key={each.id} details={each} />
-          ))}
-        </ul>
-      </div>
-    )
-  }
-
   render() {
     const {isLoading} = this.state
     const classname = `team ${this.classes()}`
     return (
       <div className={classname}>
-        {isLoading ? this.renderLoader() : this.getdataFromApi()}
+        {isLoading ? this.renderLoader() : this.renderTeamMatches()}
       </div>
     )
   }

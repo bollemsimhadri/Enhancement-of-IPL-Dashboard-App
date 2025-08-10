@@ -10,8 +10,8 @@ class MatchCard extends Component {
   }
 
   render() {
-    const {details} = this.props
-    const {result, matchStatus, competingTeam, competingTeamLogo} = details
+    const {matchDetails} = this.props
+    const {result, matchStatus, competingTeam, competingTeamLogo} = matchDetails
 
     const matchStatusClassName = `match-status ${this.getMatchStatus(
       matchStatus,
