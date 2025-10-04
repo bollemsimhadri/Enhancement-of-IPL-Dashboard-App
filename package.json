@@ -2,6 +2,10 @@
   "name": "ipl-dashboard-app",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": "22.x",
+    "npm": ">=10"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
@@ -68,10 +72,5 @@
       "Firefox ESR",
       "not ie < 11"
     ]
-  },
-  "pnpm": {
-    "overrides": {
-      "es-toolkit": "1.35.0"
-    }
   }
 }
